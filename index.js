@@ -2,9 +2,7 @@
 module.exports = function (input) {
   var TO_FRACTION_64 = 0.015625
   var MM_TO_INCH = 25.4
-  // should take numbers or strings
-  // TODO var stringifiedInput = input + ''
-  // TODO var numberAndFractions = stringifiedInput.split(' ')
+
   var simplifyFraction = function (numerator, _denominator) {
     var denominator = _denominator || 64
     // if there is no denominator then there is no fraction
@@ -29,16 +27,42 @@ module.exports = function (input) {
   return {
     toInch: function () {
       var rawInches = Number(input) / MM_TO_INCH
-      var inches = Math.floor(rawInches)
+      // integers
+      var integers = Math.floor(rawInches)
+      // limit to 6 decimals to avoid conflicts
       var decimals = Number((rawInches % 1).toFixed(6))
+      // fractionize for denominator 64
       var fraction64 = Math.round(decimals / TO_FRACTION_64)
       var simplifiedFraction = simplifyFraction(fraction64)
-      var result = [inches, simplifiedFraction]
+      var result = [integers, simplifiedFraction]
       return result.filter(function (r) { return r }).join(' ')
     },
 
     toMM: function () {
-      return input
+      // should take numbers or strings
+      var stringifiedInput = input + ''
+      var fragments = stringifiedInput.split(' ')
+      var inchesAndDecimals = fragments.map(function (fragment) {
+        var broken = fragment.split('/')
+        if (broken.length === 2) {
+          // Strip the leading 0
+          var decimals = (Number(broken[0]) / Number(broken[1])).toFixed(6)
+          return decimals.slice(1)
+        }
+        return Number(broken[0])
+      }).join('')
+
+      // convert to mm
+      var mm = Number(inchesAndDecimals) * MM_TO_INCH
+
+      // return exact rounding if it is the 1:1 ratio
+      // so the user doesn't freaks out of the conversion
+      if (mm % MM_TO_INCH === 0) {
+        return (Math.round(mm * 10) / 10) + ''
+      }
+      // round to the nearest half so it matches the toInch()
+      // and return as string
+      return (Math.round(mm * 2) / 2) + ''
     }
   }
 }

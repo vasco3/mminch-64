@@ -7,3 +7,5 @@
 - Created npm package
 - Created tests
 - Created script
+- Created toInch()
+- Created toMM()
