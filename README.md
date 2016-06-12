@@ -29,7 +29,7 @@ From npm
 ### Conver inches to mm
 
 ```js
-  mminch(1).toMM() // '1'
+  mminch('3/64').toMM() // '1'
 ```
 
 ## Supported conversions
