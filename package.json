@@ -4,7 +4,7 @@
   "description": "Convert millimeters to inches with fractions based on 64 denominator",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "node test.js; eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -15,10 +15,17 @@
     "inches",
     "conversion"
   ],
-  "author": "Jorge Cuadra",
+  "author": {
+    "name": "Jorge Cuadra",
+    "email": "jorgecuadrafueyo@gmail.com",
+    "url": "www.cuadranteweb.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vasco3/mminch-64/issues"
   },
-  "homepage": "https://github.com/vasco3/mminch-64#readme"
+  "homepage": "https://github.com/vasco3/mminch-64#readme",
+  "devDependencies": {
+    "eslint": "^2.12.0"
+  }
 }
