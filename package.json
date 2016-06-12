@@ -1,0 +1,24 @@
+{
+  "name": "mminch-64",
+  "version": "1.0.0",
+  "description": "Convert millimeters to inches with fractions based on 64 denominator",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasco3/mminch-64.git"
+  },
+  "keywords": [
+    "millimeters",
+    "inches",
+    "conversion"
+  ],
+  "author": "Jorge Cuadra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vasco3/mminch-64/issues"
+  },
+  "homepage": "https://github.com/vasco3/mminch-64#readme"
+}
