@@ -13,7 +13,7 @@ You might say that `3/64 inch` is `1.1906mm`. But to keep rounding simple and to
 
 This tool is meant to be for a practical use case and not a precise millimetrical use case. This is commonly found in industries like construction and engineering when they are talking about rough estimates. That means that this library can't be replaced by the numbers `0.0393701`, or if you want **/64ths**, `2.51968504`.
 
-By no means use this library as an exact conversion tool for projects that require utlimate precision. By doing so you run the risk of losing millions of dollars like a hand-ful of [NASA projects](http://thinkreliability.com/CM-MarsCO.aspx).
+By no means use this library as an exact conversion tool for projects that require ultimate precision. By doing so you run the risk of losing millions of dollars like a hand-ful of [NASA projects](http://thinkreliability.com/CM-MarsCO.aspx).
 
 > Shout out to [ugwe43to874nf4](https://www.reddit.com/user/ugwe43to874nf4) for pointing out some of the potential flaws of this library under an incorrect use.
 
