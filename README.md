@@ -9,11 +9,9 @@ This library covers a specific need for practical need. People aren't used to th
 
 ### Disclaimer 
 
-You might say that `3/64 inch` is `1.1906mm`. But to keep rounding simple and to be consistent on the conversion from mm to inches and inches to mm, it rounds millimeters to the nearest half eg. `1/4 in ~ 6.5mm` or `3/64 in ~ 1mm`. This rounding can cause trouble with fractions that are close to each other like `1/4` and `17/64` or with `3/16` and `13/64`.
+You might say that `3/64 inch` is `1.1906mm`. But to keep rounding simple and to be consistent on the conversion from mm to inches and inches to mm, it rounds millimeters to the nearest half eg. `1/4 in ~ 6.5mm` or `3/64 in ~ 1mm`. This rounding can cause trouble with fractions that are close to each other like `1/4` and `17/64` or with `3/16` and `13/64`. Due to  mismatch from fractions to decimals, the results are slightly off in most cases due to rounding.
 
-That means that this library can't be replaced by the numbers `0.0393701`, or if you want **/64ths**, `2.51968504`. Due to  mismatch from fractions to decimals, the results are slightly off in most cases due to rounding.
-
-This tool is meant to be for a practical use case and not a precise millimetrical use case. This is commonly found in industries like construction and engineering when they are talking about rough estimates.
+This tool is meant to be for a practical use case and not a precise millimetrical use case. This is commonly found in industries like construction and engineering when they are talking about rough estimates. That means that this library can't be replaced by the numbers `0.0393701`, or if you want **/64ths**, `2.51968504`.
 
 By no means use this library as an exact conversion tool for projects that require utlimate precision. By doing so you run the risk of losing millions of dollars like a hand-ful of [NASA projects](http://thinkreliability.com/CM-MarsCO.aspx).
 
