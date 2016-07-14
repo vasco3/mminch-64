@@ -1,6 +1,6 @@
 # mminch-64
 
-![mminch-64](https://github.com/vasco3/mminch-64/blob/master/mmInch64-logo.png)
+![mminch-64](https://raw.githubusercontent.com/vasco3/mminch-64/master/mmInch64-logo.png)
 
 > Convert millimeters to inches with fractions based on 64 denominator.
 
