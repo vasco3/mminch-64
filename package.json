@@ -1,6 +1,6 @@
 {
   "name": "mminch-64",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert millimeters to inches with fractions based on 64 denominator",
   "main": "index.js",
   "scripts": {
