@@ -2,6 +2,9 @@
 
 > Convert millimeters to inches with fractions based on 64 denominator.
 
+![mminch-64](https://github.com/vasco3/mminch-64/blob/master/mmInch64-logo.png)
+
+
 ## About 
 
 This library covers a specific need for practical need. People aren't used to think of inches as decimals. They understand them better in fractions. They want to see them as fractions of *64ths* like they would in an [inch ruler](https://www.piliapp.com/actual-size/inch-ruler/). There are many *inch-to-millimeters* tables like http://www.hamuniverse.com/antfrac.html that stress the importance of having inches as fractions.
