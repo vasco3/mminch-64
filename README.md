@@ -1,8 +1,8 @@
 # mminch-64
 
-> Convert millimeters to inches with fractions based on 64 denominator.
-
 ![mminch-64](https://github.com/vasco3/mminch-64/blob/master/mmInch64-logo.png)
+
+> Convert millimeters to inches with fractions based on 64 denominator.
 
 
 ## About 
