@@ -51,5 +51,6 @@ From npm
 
 - mm to in
 - in to mm
+- in to feet
 
 
