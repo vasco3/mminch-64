@@ -1,7 +1,8 @@
 
-module.exports = function (input) {
+function mminch (input) {
   var TO_FRACTION_64 = 0.015625
   var MM_TO_INCH = 25.4
+  var INCH_TO_FEET = 12
 
   var simplifyFraction = function (numerator, _denominator) {
     var denominator = _denominator || 64
@@ -24,45 +25,69 @@ module.exports = function (input) {
     return simplifyFraction(newNumerator, newDenominator)
   }
 
-  return {
-    toInch: function () {
-      var rawInches = Number(input) / MM_TO_INCH
-      // integers
-      var integers = Math.floor(rawInches)
-      // limit to 6 decimals to avoid conflicts
-      var decimals = Number((rawInches % 1).toFixed(6))
-      // fractionize for denominator 64
-      var fraction64 = Math.round(decimals / TO_FRACTION_64)
-      var simplifiedFraction = simplifyFraction(fraction64)
-      var result = [integers, simplifiedFraction]
-      return result.filter(function (r) { return r }).join(' ')
-    },
+  function toInch (_input) {
+    var rawInches = Number(_input || input) / MM_TO_INCH
+    // integers
+    var integers = Math.floor(rawInches)
+    // limit to 6 decimals to avoid conflicts
+    var decimals = Number((rawInches % 1).toFixed(6))
+    // fractionize for denominator 64
+    var fraction64 = Math.round(decimals / TO_FRACTION_64)
+    var simplifiedFraction = simplifyFraction(fraction64)
+    var result = [integers, simplifiedFraction]
+    return result.filter(function (r) { return r }).join(' ')
+  }
 
-    toMM: function () {
-      // should take numbers or strings
-      var stringifiedInput = input + ''
-      var fragments = stringifiedInput.split(' ')
-      var inchesAndDecimals = fragments.map(function (fragment) {
-        var broken = fragment.split('/')
-        if (broken.length === 2) {
-          // Strip the leading 0
-          var decimals = (Number(broken[0]) / Number(broken[1])).toFixed(6)
-          return decimals.slice(1)
-        }
-        return Number(broken[0])
-      }).join('')
-
-      // convert to mm
-      var mm = Number(inchesAndDecimals) * MM_TO_INCH
-
-      // return exact rounding if it is the 1:1 ratio
-      // so the user doesn't freaks out of the conversion
-      if (mm % MM_TO_INCH === 0) {
-        return (Math.round(mm * 10) / 10) + ''
+  function toMM () {
+    // should take numbers or strings
+    var stringifiedInput = input + ''
+    var fragments = stringifiedInput.split(' ')
+    var inchesAndDecimals = fragments.map(function (fragment) {
+      var broken = fragment.split('/')
+      if (broken.length === 2) {
+        // Strip the leading 0
+        var decimals = (Number(broken[0]) / Number(broken[1])).toFixed(6)
+        return decimals.slice(1)
       }
-      // round to the nearest half so it matches the toInch()
-      // and return as string
-      return (Math.round(mm * 2) / 2) + ''
+      return Number(broken[0])
+    }).join('')
+
+    // convert to mm
+    var mm = Number(inchesAndDecimals) * MM_TO_INCH
+
+    // return exact rounding if it is the 1:1 ratio
+    // so the user doesn't freaks out of the conversion
+    if (mm % MM_TO_INCH === 0) {
+      return (Math.round(mm * 10) / 10) + ''
     }
+    // round to the nearest half so it matches the toInch()
+    // and return as string
+    return (Math.round(mm * 2) / 2) + ''
+  }
+
+  function toFeet () {
+    // parse to MM
+    var mm = toMM()
+    var inches = mm / MM_TO_INCH
+    var feet = Math.floor(inches / INCH_TO_FEET)
+    var stringFeet = feet + ' ft'
+    var residualInches = Math.round(inches % INCH_TO_FEET)
+    var stringInches = residualInches === 0 ? '' :
+      ' ' + residualInches + ' in'
+
+    if (!feet) {
+      return stringFeet + ' ' + toInch(inches) + ' in'
+    }
+    return stringFeet + stringInches
+  }
+
+  return {
+    toInch: toInch,
+
+    toFeet: toFeet,
+
+    toMM: toMM
   }
 }
+
+module.exports = mminch

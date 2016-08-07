@@ -2,15 +2,16 @@
 
 ![mminch-64](https://raw.githubusercontent.com/vasco3/mminch-64/master/mmInch64-logo.png)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/vasco3/mminch-64/badge.svg)](https://snyk.io/test/github/vasco3/mminch-64)
+
 > Convert millimeters to inches with fractions based on 64 denominator.
 
-
-## About 
+## About
 
 This library covers a specific need for practical need. People aren't used to think of inches as decimals. They understand them better in fractions. They want to see them as fractions of *64ths* like they would in an [inch ruler](https://www.piliapp.com/actual-size/inch-ruler/). There are many *inch-to-millimeters* tables like http://www.hamuniverse.com/antfrac.html that stress the importance of having inches as fractions.
 
 
-### Disclaimer 
+### Disclaimer
 
 You might say that `3/64 inch` is `1.1906mm`. But to keep rounding simple and to be consistent on the conversion from mm to inches and inches to mm, it rounds millimeters to the nearest half eg. `1/4 in ~ 6.5mm` or `3/64 in ~ 1mm`. This rounding can cause trouble with fractions that are close to each other like `1/4` and `17/64` or with `3/16` and `13/64`. Due to  mismatch from fractions to decimals, the results are slightly off in most cases due to rounding.
 
@@ -34,10 +35,16 @@ From npm
   mminch(1).toInch() // '3/64'
 ```
 
-### Conver inches to mm
+### Convert inches to mm
 
 ```js
   mminch('3/64').toMM() // '1'
+```
+
+### Convert inches to feet
+
+```js
+  mminch('12').toFeet() // '1'
 ```
 
 ## Supported conversions
