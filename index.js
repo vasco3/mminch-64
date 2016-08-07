@@ -68,7 +68,7 @@ function mminch (input) {
   function toFeet () {
     // parse to MM
     var mm = toMM()
-    var inches = mm / MM_TO_INCH
+    var inches = Math.round(mm / MM_TO_INCH)
     var feet = Math.floor(inches / INCH_TO_FEET)
     var stringFeet = feet + ' ft'
     var residualInches = Math.round(inches % INCH_TO_FEET)
@@ -76,7 +76,7 @@ function mminch (input) {
       ' ' + residualInches + ' in'
 
     if (!feet) {
-      return stringFeet + ' ' + toInch(inches) + ' in'
+      return stringFeet + ' ' + toInch(inches || 1) + ' in'
     }
     return stringFeet + stringInches
   }

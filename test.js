@@ -33,8 +33,9 @@ assert.equal(mminch('3 15/16').toMM(), '100')
 console.log('testing conversions inches to feet...')
 
 assert.equal(mminch('12').toFeet(), '1 ft')
+assert.equal(mminch('24').toFeet(), '2 ft')
 assert.equal(mminch('1.042').toFeet(), '0 ft 3/64 in')
-assert.equal(mminch('5/16').toFeet(), '0 ft 1/64 in')
+assert.equal(mminch('5/16').toFeet(), '0 ft 3/64 in')
 assert.equal(mminch('14').toFeet(), '1 ft 2 in')
 assert.equal(mminch('26').toFeet(), '2 ft 2 in')
 
