@@ -27,6 +27,10 @@ From npm
 
 `npm install --save mminch-64`
 
+From the browser
+
+`<script src="https://npmcdn.com/mminch-64@2.1.0"></script>`
+
 ## Usage
 
 ### Convert mm to inches
