@@ -27,6 +27,6 @@
   "homepage": "https://github.com/vasco3/mminch-64#readme",
   "tonicExampleFilename": "example.js",
   "devDependencies": {
-    "eslint": "^2.12.0"
+    "eslint": "^6.5.1"
   }
 }
